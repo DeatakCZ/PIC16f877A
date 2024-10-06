@@ -1,0 +1,790 @@
+
+
+Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
+                                                                                               Thu Jun 13 16:06:48 2024
+
+Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
+     1                           	processor	16F877A
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     6                           	psect	maintext,global,class=CODE,split=1,delta=2
+     7                           	psect	text1,local,class=CODE,merge=1,delta=2
+     8                           	psect	text2,local,class=CODE,merge=1,delta=2
+     9                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    10                           	dabs	1,0x7E,2
+    11     0000                     
+    12                           ; Generated 12/10/2023 GMT
+    13                           ; 
+    14                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    15                           ; All rights reserved.
+    16                           ; 
+    17                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    18                           ; 
+    19                           ; Redistribution and use in source and binary forms, with or without modification, are
+    20                           ; permitted provided that the following conditions are met:
+    21                           ; 
+    22                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    23                           ;        conditions and the following disclaimer.
+    24                           ; 
+    25                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    26                           ;        of conditions and the following disclaimer in the documentation and/or other
+    27                           ;        materials provided with the distribution. Publication is not required when
+    28                           ;        this file is used in an embedded application.
+    29                           ; 
+    30                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    31                           ;        software without specific prior written permission.
+    32                           ; 
+    33                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    34                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    35                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    36                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    37                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    38                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    39                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    40                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    41                           ; 
+    42                           ; 
+    43                           ; Code-generator required, PIC16F877A Definitions
+    44                           ; 
+    45                           ; SFR Addresses
+    46     0000                     	;# 
+    47     0001                     	;# 
+    48     0002                     	;# 
+    49     0003                     	;# 
+    50     0004                     	;# 
+    51     0005                     	;# 
+    52     0006                     	;# 
+    53     0007                     	;# 
+    54     0008                     	;# 
+    55     0009                     	;# 
+    56     000A                     	;# 
+    57     000B                     	;# 
+    58     000C                     	;# 
+    59     000D                     	;# 
+    60     000E                     	;# 
+    61     000E                     	;# 
+    62     000F                     	;# 
+    63     0010                     	;# 
+    64     0011                     	;# 
+    65     0012                     	;# 
+    66     0013                     	;# 
+    67     0014                     	;# 
+    68     0015                     	;# 
+    69     0015                     	;# 
+    70     0016                     	;# 
+    71     0017                     	;# 
+    72     0018                     	;# 
+    73     0019                     	;# 
+    74     001A                     	;# 
+    75     001B                     	;# 
+    76     001B                     	;# 
+    77     001C                     	;# 
+    78     001D                     	;# 
+    79     001E                     	;# 
+    80     001F                     	;# 
+    81     0081                     	;# 
+    82     0085                     	;# 
+    83     0086                     	;# 
+    84     0087                     	;# 
+    85     0088                     	;# 
+    86     0089                     	;# 
+    87     008C                     	;# 
+    88     008D                     	;# 
+    89     008E                     	;# 
+    90     0091                     	;# 
+    91     0092                     	;# 
+    92     0093                     	;# 
+    93     0094                     	;# 
+    94     0098                     	;# 
+    95     0099                     	;# 
+    96     009C                     	;# 
+    97     009D                     	;# 
+    98     009E                     	;# 
+    99     009F                     	;# 
+   100     010C                     	;# 
+   101     010D                     	;# 
+   102     010E                     	;# 
+   103     010F                     	;# 
+   104     018C                     	;# 
+   105     018D                     	;# 
+   106     0000                     	;# 
+   107     0001                     	;# 
+   108     0002                     	;# 
+   109     0003                     	;# 
+   110     0004                     	;# 
+   111     0005                     	;# 
+   112     0006                     	;# 
+   113     0007                     	;# 
+   114     0008                     	;# 
+   115     0009                     	;# 
+   116     000A                     	;# 
+   117     000B                     	;# 
+   118     000C                     	;# 
+   119     000D                     	;# 
+   120     000E                     	;# 
+   121     000E                     	;# 
+   122     000F                     	;# 
+   123     0010                     	;# 
+   124     0011                     	;# 
+   125     0012                     	;# 
+   126     0013                     	;# 
+   127     0014                     	;# 
+   128     0015                     	;# 
+   129     0015                     	;# 
+   130     0016                     	;# 
+   131     0017                     	;# 
+   132     0018                     	;# 
+   133     0019                     	;# 
+   134     001A                     	;# 
+   135     001B                     	;# 
+   136     001B                     	;# 
+   137     001C                     	;# 
+   138     001D                     	;# 
+   139     001E                     	;# 
+   140     001F                     	;# 
+   141     0081                     	;# 
+   142     0085                     	;# 
+   143     0086                     	;# 
+   144     0087                     	;# 
+   145     0088                     	;# 
+   146     0089                     	;# 
+   147     008C                     	;# 
+   148     008D                     	;# 
+   149     008E                     	;# 
+   150     0091                     	;# 
+   151     0092                     	;# 
+   152     0093                     	;# 
+   153     0094                     	;# 
+   154     0098                     	;# 
+   155     0099                     	;# 
+   156     009C                     	;# 
+   157     009D                     	;# 
+   158     009E                     	;# 
+   159     009F                     	;# 
+   160     010C                     	;# 
+   161     010D                     	;# 
+   162     010E                     	;# 
+   163     010F                     	;# 
+   164     018C                     	;# 
+   165     018D                     	;# 
+   166     0011                     _TMR2	set	17
+   167     0015                     _CCPR1L	set	21
+   168     0030                     _RB0	set	48
+   169     002D                     _RA5	set	45
+   170     0035                     _RB5	set	53
+   171     0034                     _RB4	set	52
+   172     0033                     _RB3	set	51
+   173     0043                     _RD3	set	67
+   174     00BA                     _CCP1M2	set	186
+   175     00BB                     _CCP1M3	set	187
+   176     0090                     _T2CKPS0	set	144
+   177     0091                     _T2CKPS1	set	145
+   178     0092                     _TMR2ON	set	146
+   179     0093                     _TOUTPS0	set	147
+   180     0094                     _TOUTPS1	set	148
+   181     0095                     _TOUTPS2	set	149
+   182     0096                     _TOUTPS3	set	150
+   183     00BC                     _CCP1Y	set	188
+   184     00BD                     _CCP1X	set	189
+   185     0086                     _TRISB	set	134
+   186     0092                     _PR2	set	146
+   187     042D                     _TRISA5	set	1069
+   188     043A                     _TRISC2	set	1082
+   189     0433                     _TRISB3	set	1075
+   190     0443                     _TRISD3	set	1091
+   191     0432                     _TRISB2	set	1074
+   192     0442                     _TRISD2	set	1090
+   193     0431                     _TRISB1	set	1073
+   194     0441                     _TRISD1	set	1089
+   195     0430                     _TRISB0	set	1072
+   196     0440                     _TRISD0	set	1088
+   197                           
+   198                           	psect	cinit
+   199     07FC                     start_initialization:	
+   200                           ; #config settings
+   201                           
+   202     07FC                     __initialization:
+   203     07FC                     end_of_initialization:	
+   204                           ;End of C runtime variable initialization code
+   205                           
+   206     07FC                     __end_of__initialization:
+   207     07FC  0183               	clrf	3
+   208     07FD  120A  118A  2F9A   	ljmp	_main	;jump to C main() function
+   209                           
+   210                           	psect	cstackCOMMON
+   211     0070                     __pcstackCOMMON:
+   212     0070                     ?_PWM1_DutyCycle:
+   213     0070                     ?_DC_Reverse:	
+   214                           ; 1 bytes @ 0x0
+   215                           
+   216     0070                     ??_DC_Reverse:	
+   217                           ; 1 bytes @ 0x0
+   218                           
+   219     0070                     ?_main:	
+   220                           ; 1 bytes @ 0x0
+   221                           
+   222     0070                     PWM1_DutyCycle@DC:	
+   223                           ; 1 bytes @ 0x0
+   224                           
+   225                           
+   226                           ; 2 bytes @ 0x0
+   227     0070                     	ds	2
+   228     0072                     ??_PWM1_DutyCycle:
+   229                           
+   230                           ; 1 bytes @ 0x2
+   231     0072                     	ds	2
+   232     0074                     ??_main:
+   233                           
+   234                           	psect	maintext
+   235     079A                     __pmaintext:	
+   236                           ; 1 bytes @ 0x4
+   237 ;;
+   238 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   239 ;;
+   240 ;; *************** function _main *****************
+   241 ;; Defined at:
+   242 ;;		line 38 in file "main.c"
+   243 ;; Parameters:    Size  Location     Type
+   244 ;;		None
+   245 ;; Auto vars:     Size  Location     Type
+   246 ;;		None
+   247 ;; Return value:  Size  Location     Type
+   248 ;;                  1    wreg      void 
+   249 ;; Registers used:
+   250 ;;		wreg, status,2, status,0, pclath, cstack
+   251 ;; Tracked objects:
+   252 ;;		On entry : B00/0
+   253 ;;		On exit  : 0/0
+   254 ;;		Unchanged: 0/0
+   255 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   256 ;;      Params:         0       0       0       0       0
+   257 ;;      Locals:         0       0       0       0       0
+   258 ;;      Temps:          0       0       0       0       0
+   259 ;;      Totals:         0       0       0       0       0
+   260 ;;Total ram usage:        0 bytes
+   261 ;; Hardware stack levels required when called: 1
+   262 ;; This function calls:
+   263 ;;		_DC_Reverse
+   264 ;;		_PWM1_DutyCycle
+   265 ;; This function is called by:
+   266 ;;		Startup code after reset
+   267 ;; This function uses a non-reentrant model
+   268 ;;
+   269                           
+   270     079A                     _main:	
+   271                           ;psect for function _main
+   272                           
+   273     079A                     l690:	
+   274                           ;incstack = 0
+   275                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   276                           
+   277                           
+   278                           ;main.c: 41:     TOUTPS3 = 0;
+   279     079A  1283               	bcf	3,5	;RP0=0, select bank0
+   280     079B  1303               	bcf	3,6	;RP1=0, select bank0
+   281     079C  1312               	bcf	18,6	;volatile
+   282                           
+   283                           ;main.c: 42:     TOUTPS2 = 0;
+   284     079D  1292               	bcf	18,5	;volatile
+   285                           
+   286                           ;main.c: 43:     TOUTPS1 = 0;
+   287     079E  1212               	bcf	18,4	;volatile
+   288                           
+   289                           ;main.c: 44:     TOUTPS0 = 0;
+   290     079F  1192               	bcf	18,3	;volatile
+   291                           
+   292                           ;main.c: 45:     TMR2ON = 0;
+   293     07A0  1112               	bcf	18,2	;volatile
+   294                           
+   295                           ;main.c: 46:     T2CKPS1 = 0;
+   296     07A1  1092               	bcf	18,1	;volatile
+   297                           
+   298                           ;main.c: 47:     T2CKPS0 = 0;
+   299     07A2  1012               	bcf	18,0	;volatile
+   300     07A3                     l692:
+   301                           
+   302                           ;main.c: 48:     TMR2 = 0;
+   303     07A3  0191               	clrf	17	;volatile
+   304     07A4                     l694:
+   305                           
+   306                           ;main.c: 51:     CCP1M3 = 1;
+   307     07A4  1597               	bsf	23,3	;volatile
+   308     07A5                     l696:
+   309                           
+   310                           ;main.c: 52:     CCP1M2 = 1;
+   311     07A5  1517               	bsf	23,2	;volatile
+   312     07A6                     l698:
+   313                           
+   314                           ;main.c: 112:     PR2 = 124;
+   315     07A6  307C               	movlw	124
+   316     07A7  1683               	bsf	3,5	;RP0=1, select bank1
+   317     07A8  1303               	bcf	3,6	;RP1=0, select bank1
+   318     07A9  0092               	movwf	18	;volatile
+   319     07AA                     l700:
+   320                           
+   321                           ;main.c: 115:     TRISC2 = 0;
+   322     07AA  1107               	bcf	7,2	;volatile
+   323     07AB                     l702:
+   324                           
+   325                           ;main.c: 117:     TRISB = 0xFF;
+   326     07AB  30FF               	movlw	255
+   327     07AC  0086               	movwf	6	;volatile
+   328     07AD                     l704:
+   329                           
+   330                           ;main.c: 118:     TRISA5 = 1 ;
+   331     07AD  1685               	bsf	5,5	;volatile
+   332     07AE                     l706:
+   333                           
+   334                           ;main.c: 120:     RD0, RD1, RD2, RD3 = 0;
+   335     07AE  1283               	bcf	3,5	;RP0=0, select bank0
+   336     07AF  1303               	bcf	3,6	;RP1=0, select bank0
+   337     07B0  1188               	bcf	8,3	;volatile
+   338     07B1                     l708:
+   339                           
+   340                           ;main.c: 121:     TRISD0, TRISD3 = 0;
+   341     07B1  1683               	bsf	3,5	;RP0=1, select bank1
+   342     07B2  1303               	bcf	3,6	;RP1=0, select bank1
+   343     07B3  1188               	bcf	8,3	;volatile
+   344     07B4                     l710:
+   345                           
+   346                           ;main.c: 122:     TRISD1, TRISD2 = 1;
+   347     07B4  1508               	bsf	8,2	;volatile
+   348     07B5                     l712:
+   349                           
+   350                           ;main.c: 123:     PWM1_DutyCycle(250);
+   351     07B5  30FA               	movlw	250
+   352     07B6  00F0               	movwf	PWM1_DutyCycle@DC
+   353     07B7  3000               	movlw	0
+   354     07B8  00F1               	movwf	PWM1_DutyCycle@DC+1
+   355     07B9  120A  118A  2757  120A  118A  	fcall	_PWM1_DutyCycle
+   356     07BE                     l714:
+   357                           
+   358                           ;main.c: 126:         if(!RB3)
+   359     07BE  1283               	bcf	3,5	;RP0=0, select bank0
+   360     07BF  1303               	bcf	3,6	;RP1=0, select bank0
+   361     07C0  1986               	btfsc	6,3	;volatile
+   362     07C1  2FC3               	goto	u181
+   363     07C2  2FC4               	goto	u180
+   364     07C3                     u181:
+   365     07C3  2FCE               	goto	l85
+   366     07C4                     u180:
+   367     07C4                     l716:
+   368                           
+   369                           ;main.c: 127:             PWM1_DutyCycle(500);
+   370     07C4  30F4               	movlw	244
+   371     07C5  00F0               	movwf	PWM1_DutyCycle@DC
+   372     07C6  3001               	movlw	1
+   373     07C7  00F1               	movwf	PWM1_DutyCycle@DC+1
+   374     07C8  120A  118A  2757  120A  118A  	fcall	_PWM1_DutyCycle
+   375     07CD  2FBE               	goto	l714
+   376     07CE                     l85:	
+   377                           ;main.c: 128:         else if(!RB4)
+   378                           
+   379     07CE  1A06               	btfsc	6,4	;volatile
+   380     07CF  2FD1               	goto	u191
+   381     07D0  2FD2               	goto	u190
+   382     07D1                     u191:
+   383     07D1  2FDC               	goto	l87
+   384     07D2                     u190:
+   385     07D2                     l718:
+   386                           
+   387                           ;main.c: 129:             PWM1_DutyCycle(375);
+   388     07D2  3077               	movlw	119
+   389     07D3  00F0               	movwf	PWM1_DutyCycle@DC
+   390     07D4  3001               	movlw	1
+   391     07D5  00F1               	movwf	PWM1_DutyCycle@DC+1
+   392     07D6  120A  118A  2757  120A  118A  	fcall	_PWM1_DutyCycle
+   393     07DB  2FBE               	goto	l714
+   394     07DC                     l87:	
+   395                           ;main.c: 130:         else if(!RB5)
+   396                           
+   397     07DC  1A86               	btfsc	6,5	;volatile
+   398     07DD  2FDF               	goto	u201
+   399     07DE  2FE0               	goto	u200
+   400     07DF                     u201:
+   401     07DF  2FE1               	goto	l89
+   402     07E0                     u200:
+   403     07E0  2FB5               	goto	l712
+   404     07E1                     l89:	
+   405                           ;main.c: 132:         else if(!RA5)
+   406                           
+   407     07E1  1A85               	btfsc	5,5	;volatile
+   408     07E2  2FE4               	goto	u211
+   409     07E3  2FE5               	goto	u210
+   410     07E4                     u211:
+   411     07E4  2FEE               	goto	l91
+   412     07E5                     u210:
+   413     07E5                     l722:
+   414                           
+   415                           ;main.c: 133:             PWM1_DutyCycle(0);
+   416     07E5  3000               	movlw	0
+   417     07E6  00F0               	movwf	PWM1_DutyCycle@DC
+   418     07E7  00F1               	movwf	PWM1_DutyCycle@DC+1
+   419     07E8  120A  118A  2757  120A  118A  	fcall	_PWM1_DutyCycle
+   420     07ED  2FBE               	goto	l714
+   421     07EE                     l91:	
+   422                           ;main.c: 134:         else if(!RB0)
+   423                           
+   424     07EE  1806               	btfsc	6,0	;volatile
+   425     07EF  2FF1               	goto	u221
+   426     07F0  2FF2               	goto	u220
+   427     07F1                     u221:
+   428     07F1  2FF8               	goto	l88
+   429     07F2                     u220:
+   430     07F2                     l724:
+   431                           
+   432                           ;main.c: 135:             DC_Reverse();
+   433     07F2  120A  118A  276F  120A  118A  	fcall	_DC_Reverse
+   434     07F7  2FBE               	goto	l714
+   435     07F8                     l88:
+   436     07F8  2FBE               	goto	l714
+   437     07F9  120A  118A  2800   	ljmp	start
+   438     07FC                     __end_of_main:
+   439                           
+   440                           	psect	text1
+   441     0757                     __ptext1:	
+   442 ;; *************** function _PWM1_DutyCycle *****************
+   443 ;; Defined at:
+   444 ;;		line 19 in file "main.c"
+   445 ;; Parameters:    Size  Location     Type
+   446 ;;  DC              2    0[COMMON] unsigned short 
+   447 ;; Auto vars:     Size  Location     Type
+   448 ;;		None
+   449 ;; Return value:  Size  Location     Type
+   450 ;;                  1    wreg      void 
+   451 ;; Registers used:
+   452 ;;		wreg, status,2, status,0
+   453 ;; Tracked objects:
+   454 ;;		On entry : 0/0
+   455 ;;		On exit  : 0/0
+   456 ;;		Unchanged: 0/0
+   457 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   458 ;;      Params:         2       0       0       0       0
+   459 ;;      Locals:         0       0       0       0       0
+   460 ;;      Temps:          2       0       0       0       0
+   461 ;;      Totals:         4       0       0       0       0
+   462 ;;Total ram usage:        4 bytes
+   463 ;; Hardware stack levels used: 1
+   464 ;; This function calls:
+   465 ;;		Nothing
+   466 ;; This function is called by:
+   467 ;;		_main
+   468 ;; This function uses a non-reentrant model
+   469 ;;
+   470                           
+   471     0757                     _PWM1_DutyCycle:	
+   472                           ;psect for function _PWM1_DutyCycle
+   473                           
+   474     0757                     l686:	
+   475                           ;incstack = 0
+   476                           ; Regs used in _PWM1_DutyCycle: [wreg+status,2+status,0]
+   477                           
+   478                           
+   479                           ;main.c: 19: void PWM1_DutyCycle(uint16_t DC);main.c: 20: {;main.c: 21:     CCP1X = (DC)
+      +                           & 1;
+   480     0757  1870               	btfsc	PWM1_DutyCycle@DC,0
+   481     0758  2F5A               	goto	u161
+   482     0759  2F5E               	goto	u160
+   483     075A                     u161:
+   484     075A  1283               	bcf	3,5	;RP0=0, select bank0
+   485     075B  1303               	bcf	3,6	;RP1=0, select bank0
+   486     075C  1697               	bsf	23,5	;volatile
+   487     075D  2F61               	goto	u174
+   488     075E                     u160:
+   489     075E  1283               	bcf	3,5	;RP0=0, select bank0
+   490     075F  1303               	bcf	3,6	;RP1=0, select bank0
+   491     0760  1297               	bcf	23,5	;volatile
+   492     0761                     u174:
+   493                           
+   494                           ;main.c: 22:     CCP1Y = (DC) & 2;
+   495     0761  1217               	bcf	23,4	;volatile
+   496     0762                     l688:
+   497                           
+   498                           ;main.c: 23:     CCPR1L = (DC) >> 2;
+   499     0762  0871               	movf	PWM1_DutyCycle@DC+1,w
+   500     0763  00F3               	movwf	??_PWM1_DutyCycle+1
+   501     0764  0870               	movf	PWM1_DutyCycle@DC,w
+   502     0765  00F2               	movwf	??_PWM1_DutyCycle
+   503     0766  1003               	clrc
+   504     0767  0CF3               	rrf	??_PWM1_DutyCycle+1,f
+   505     0768  0CF2               	rrf	??_PWM1_DutyCycle,f
+   506     0769  1003               	clrc
+   507     076A  0CF3               	rrf	??_PWM1_DutyCycle+1,f
+   508     076B  0CF2               	rrf	??_PWM1_DutyCycle,f
+   509     076C  0872               	movf	??_PWM1_DutyCycle,w
+   510     076D  0095               	movwf	21	;volatile
+   511     076E                     l73:
+   512     076E  0008               	return
+   513     076F                     __end_of_PWM1_DutyCycle:
+   514                           
+   515                           	psect	text2
+   516     076F                     __ptext2:	
+   517 ;; *************** function _DC_Reverse *****************
+   518 ;; Defined at:
+   519 ;;		line 26 in file "main.c"
+   520 ;; Parameters:    Size  Location     Type
+   521 ;;		None
+   522 ;; Auto vars:     Size  Location     Type
+   523 ;;		None
+   524 ;; Return value:  Size  Location     Type
+   525 ;;                  1    wreg      void 
+   526 ;; Registers used:
+   527 ;;		None
+   528 ;; Tracked objects:
+   529 ;;		On entry : 0/0
+   530 ;;		On exit  : 0/0
+   531 ;;		Unchanged: 0/0
+   532 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   533 ;;      Params:         0       0       0       0       0
+   534 ;;      Locals:         0       0       0       0       0
+   535 ;;      Temps:          0       0       0       0       0
+   536 ;;      Totals:         0       0       0       0       0
+   537 ;;Total ram usage:        0 bytes
+   538 ;; Hardware stack levels used: 1
+   539 ;; This function calls:
+   540 ;;		Nothing
+   541 ;; This function is called by:
+   542 ;;		_main
+   543 ;; This function uses a non-reentrant model
+   544 ;;
+   545                           
+   546     076F                     _DC_Reverse:	
+   547                           ;psect for function _DC_Reverse
+   548                           
+   549     076F                     l644:	
+   550                           ;incstack = 0
+   551                           ; Regs used in _DC_Reverse: []
+   552                           
+   553                           
+   554                           ;main.c: 28:     TRISD0 = ~TRISB0;
+   555     076F  1683               	bsf	3,5	;RP0=1, select bank1
+   556     0770  1303               	bcf	3,6	;RP1=0, select bank1
+   557     0771  1C06               	btfss	6,0	;volatile
+   558     0772  2F74               	goto	u31
+   559     0773  2F78               	goto	u30
+   560     0774                     u31:
+   561     0774  1683               	bsf	3,5	;RP0=1, select bank1
+   562     0775  1303               	bcf	3,6	;RP1=0, select bank1
+   563     0776  1408               	bsf	8,0	;volatile
+   564     0777  2F7B               	goto	u44
+   565     0778                     u30:
+   566     0778  1683               	bsf	3,5	;RP0=1, select bank1
+   567     0779  1303               	bcf	3,6	;RP1=0, select bank1
+   568     077A  1008               	bcf	8,0	;volatile
+   569     077B                     u44:
+   570                           
+   571                           ;main.c: 29:     TRISD1 = ~TRISB1;
+   572     077B  1C86               	btfss	6,1	;volatile
+   573     077C  2F7E               	goto	u51
+   574     077D  2F82               	goto	u50
+   575     077E                     u51:
+   576     077E  1683               	bsf	3,5	;RP0=1, select bank1
+   577     077F  1303               	bcf	3,6	;RP1=0, select bank1
+   578     0780  1488               	bsf	8,1	;volatile
+   579     0781  2F85               	goto	u64
+   580     0782                     u50:
+   581     0782  1683               	bsf	3,5	;RP0=1, select bank1
+   582     0783  1303               	bcf	3,6	;RP1=0, select bank1
+   583     0784  1088               	bcf	8,1	;volatile
+   584     0785                     u64:
+   585                           
+   586                           ;main.c: 30:     TRISD2 = ~TRISB2;
+   587     0785  1D06               	btfss	6,2	;volatile
+   588     0786  2F88               	goto	u71
+   589     0787  2F8C               	goto	u70
+   590     0788                     u71:
+   591     0788  1683               	bsf	3,5	;RP0=1, select bank1
+   592     0789  1303               	bcf	3,6	;RP1=0, select bank1
+   593     078A  1508               	bsf	8,2	;volatile
+   594     078B  2F8F               	goto	u84
+   595     078C                     u70:
+   596     078C  1683               	bsf	3,5	;RP0=1, select bank1
+   597     078D  1303               	bcf	3,6	;RP1=0, select bank1
+   598     078E  1108               	bcf	8,2	;volatile
+   599     078F                     u84:
+   600                           
+   601                           ;main.c: 31:     TRISD3 = ~TRISB3;
+   602     078F  1D86               	btfss	6,3	;volatile
+   603     0790  2F92               	goto	u91
+   604     0791  2F96               	goto	u90
+   605     0792                     u91:
+   606     0792  1683               	bsf	3,5	;RP0=1, select bank1
+   607     0793  1303               	bcf	3,6	;RP1=0, select bank1
+   608     0794  1588               	bsf	8,3	;volatile
+   609     0795  2F99               	goto	u104
+   610     0796                     u90:
+   611     0796  1683               	bsf	3,5	;RP0=1, select bank1
+   612     0797  1303               	bcf	3,6	;RP1=0, select bank1
+   613     0798  1188               	bcf	8,3	;volatile
+   614     0799                     u104:
+   615     0799                     l76:
+   616     0799  0008               	return
+   617     079A                     __end_of_DC_Reverse:
+   618     007E                     btemp	set	126	;btemp
+   619     007E                     wtemp0	set	126
+   620                           
+   621                           	psect	config
+   622                           
+   623                           ;Config register CONFIG @ 0x2007
+   624                           ;	Oscillator Selection bits
+   625                           ;	FOSC = HS, HS oscillator
+   626                           ;	Watchdog Timer Enable bit
+   627                           ;	WDTE = OFF, WDT disabled
+   628                           ;	Power-up Timer Enable bit
+   629                           ;	PWRTE = OFF, PWRT disabled
+   630                           ;	Brown-out Reset Enable bit
+   631                           ;	BOREN = ON, BOR enabled
+   632                           ;	Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit
+   633                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
+   634                           ;	Data EEPROM Memory Code Protection bit
+   635                           ;	CPD = OFF, Data EEPROM code protection off
+   636                           ;	Flash Program Memory Write Enable bits
+   637                           ;	WRT = OFF, Write protection off; all program memory may be written to by EECON control
+   638                           ;	In-Circuit Debugger Mode bit
+   639                           ;	DEBUG = 0x1, unprogrammed default
+   640                           ;	Flash Program Memory Code Protection bit
+   641                           ;	CP = OFF, Code protection off
+   642     2007                     	org	8199
+   643     2007  3F7A               	dw	16250
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14      4       4
+    BANK0            80      0       0
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    _main->_PWM1_DutyCycle
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0     424
+                         _DC_Reverse
+                     _PWM1_DutyCycle
+ ---------------------------------------------------------------------------------
+ (1) _PWM1_DutyCycle                                       4     2      2     424
+                                              0 COMMON     4     2      2
+ ---------------------------------------------------------------------------------
+ (1) _DC_Reverse                                           0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _DC_Reverse
+   _PWM1_DutyCycle
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            E      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMMON               E      4       4       1       28.6%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+ABS                  0      0       0       3        0.0%
+BITBANK0            50      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+BANK0               50      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+SFR2                 0      0       0       5        0.0%
+BITBANK1            50      0       0       6        0.0%
+BANK1               50      0       0       7        0.0%
+BITBANK3            60      0       0       8        0.0%
+BANK3               60      0       0       9        0.0%
+BITBANK2            60      0       0      10        0.0%
+BANK2               60      0       0      11        0.0%
+DATA                 0      0       0      12        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.46 build 20240104201356 
+Symbol Table                                                                                   Thu Jun 13 16:06:48 2024
+
+                     l73 076E                       l91 07EE                       l76 0799  
+                     l85 07CE                       l87 07DC                       l88 07F8  
+                     l89 07E1                       u30 0778                       u31 0774  
+                     u50 0782                       u51 077E                       u44 077B  
+                     u70 078C                       u71 0788                       u64 0785  
+                     u90 0796                       u91 0792                       u84 078F  
+                    l700 07AA                      l710 07B4                      l702 07AB  
+                    l712 07B5                      l704 07AD                      l722 07E5  
+                    l714 07BE                      l706 07AE                      l644 076F  
+                    l724 07F2                      l716 07C4                      l708 07B1  
+                    l718 07D2                      l690 079A                      l692 07A3  
+                    l686 0757                      l694 07A4                      l688 0762  
+                    l696 07A5                      l698 07A6                      _RB0 0030  
+                    _RB3 0033                      _RA5 002D                      _RB4 0034  
+                    _RB5 0035                      _RD3 0043                      u104 0799  
+                    u200 07E0                      u201 07DF                      u210 07E5  
+                    u211 07E4                      u220 07F2                      u221 07F1  
+                    u160 075E                      u161 075A                      u180 07C4  
+                    u181 07C3                      u174 0761                      u190 07D2  
+                    _PR2 0092                      u191 07D1                     _TMR2 0011  
+                   _main 079A                     btemp 007E                     start 0000  
+                  ?_main 0070                    _CCP1X 00BD                    _CCP1Y 00BC  
+                  _TRISB 0086                    status 0003                    wtemp0 007E  
+        __initialization 07FC             __end_of_main 07FC                   ??_main 0074  
+                 _CCP1M2 00BA                   _CCP1M3 00BB                   _CCPR1L 0015  
+                 _TMR2ON 0092                   _TRISB0 0430                   _TRISB1 0431  
+                 _TRISB2 0432                   _TRISB3 0433                   _TRISA5 042D  
+                 _TRISD0 0440                   _TRISC2 043A                   _TRISD1 0441  
+                 _TRISD2 0442                   _TRISD3 0443  __end_of__initialization 07FC  
+           ??_DC_Reverse 0070           __pcstackCOMMON 0070       __end_of_DC_Reverse 079A  
+             __pmaintext 079A                  _T2CKPS0 0090                  _T2CKPS1 0091  
+                _TOUTPS0 0093                  _TOUTPS1 0094                  _TOUTPS2 0095  
+                _TOUTPS3 0096                  __ptext1 0757                  __ptext2 076F  
+   end_of_initialization 07FC           _PWM1_DutyCycle 0757   __end_of_PWM1_DutyCycle 076F  
+    start_initialization 07FC          ?_PWM1_DutyCycle 0070                ___latbits 0002  
+       ??_PWM1_DutyCycle 0072               _DC_Reverse 076F         PWM1_DutyCycle@DC 0070  
+            ?_DC_Reverse 0070  

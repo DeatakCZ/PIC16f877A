@@ -1,0 +1,41 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"12 C:\Users\PanTalir\Documents\GitHub\PIC16f877A\Interrupts\main.c
+[v _main main `(v  1 e 1 0 ]
+"25
+[v _ISR ISR `II(v  1 e 1 0 ]
+"2405 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
+[v _ADIF ADIF `VEb  1 e 0 @102 ]
+"2438
+[v _CCP1IE CCP1IE `VEb  1 e 0 @1122 ]
+"2561
+[v _EEIF EEIF `VEb  1 e 0 @108 ]
+"2573
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"2633
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
+"2690
+[v _RB4 RB4 `VEb  1 e 0 @52 ]
+"2951
+[v _TRISB4 TRISB4 `VEb  1 e 0 @1076 ]
+"12 C:\Users\PanTalir\Documents\GitHub\PIC16f877A\Interrupts\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"22
+} 0
+"25
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"36
+} 0
